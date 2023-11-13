@@ -1,0 +1,51 @@
+#header {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left:3px;
+    margin-right: 3px;
+    padding: 2px;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header > #titleOfPage {
+    font-size: 20px;
+    font-style:oblique;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding: 5px;
+}
+
+#charInfoAndCurrentStats {
+    padding: 5px;
+    display:flex;
+    border: 2px solid black;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#currenStatsDiv {
+    Width: 300px;
+    border: 1px solid black;
+    background-color: bisque;
+    padding: 5px;
+    font-size: 15px;
+}
+
+#currentPerksDiv {
+    margin-bottom: 25px;
+    border: 1px solid black;
+}
+
+.charCreateTable {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.title {
+    margin-top: 25px;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}

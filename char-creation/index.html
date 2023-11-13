@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Sheet</title>
+    <link rel="stylesheet" href = "style.css">
+</head>
+<body>
+    <div id = "header">
+        <label id = "titleOfPage"><b>D&D Character Sheet</b></label>
+        <div id = "loadChar" class="load">
+            <label>Load Character</label>
+            <input id = 'loadCharID' type = 'text' placeholder="Enter character ID...">
+            <button type = 'submit'>Load</button>
+        </div>
+    </div>
+    <div id="charInfoAndCurrentStats">
+        <div id = "infoDiv">
+            <label><b>Character</b></label>
+            <form id = "charInfo">
+                <table class = "charCreateTable">
+                    <tr>
+                        <td>
+                            <label for = "charName">Character Name: </label>
+                            <input id = "charName" type="text">
+                        </td>
+                    </tr>
+                        <td>
+                            <label for = "charSex">Sex: </label>
+                            <select id = "charSex">
+                                <option value = "Male">Male</option>
+                                <option value = "Female">Female</option>
+                                <option value = "Mix">Some Kind of Mix</option>
+                                <option value = "Canadian">Canadian Applicant</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for = "charRace">Character Race: </label>
+                            <select id = "charRace">
+                                <option value="human">Human</option>
+                                <option value="elf">Elf</option>
+                                <option value="dwarf">Dwarf</option>
+                                <option value="orc">Orc</option>
+                                <option value="undead">Undead</option>
+                                <option value="dragonkin">Dragonkin</option>
+                            </select>  
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for = "charClass">Character Class: </label>
+                            <select id = "charClass">
+                                <option value="soldier">Soldier</option>
+                                <option value="paladin">Paladin</option>
+                                <option value="cutthroat">Cutthroat</option>
+                                <option value="ranger">Ranger</option>
+                                <option value="sorcerer">Sorcerer <script></script></option>
+                                <option value="necromancer">Necromancer</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for = "charBackground">Background: </label>
+                            <select id = "charBackground">
+                                <option value="military">Military</option>
+                                <option value="troubledChildhood">Troubled Childhood</option>
+                                <option value="priviledged">Priviledged</option>
+                                <option value="loneWolf">Lone Wolf</option>
+                                <option value="scholar">Scholar</option>
+                                <option value="clinicallyInsane">Clinically Insane</option>
+                                <option value="broken">Broken</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for = "charAlignment">Simplified Alignment: </label>
+                            <select id = "charAlignment">
+                                <option value="good">Good</option>
+                                <option value="evil">Evil</option>
+                                <option value="selfish">Selfish</option>
+                                <option value="indifferent">Indifferent</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div id = "currenStatsDiv">
+            <label><b>Current Stat Influences</b></label>
+            <table id = "currentStatsTable">
+                <tr>
+                    <td id = "bonusStr" value = "str">Strength: 5</td>
+                </tr>
+                <tr>
+                    <td id = "bonusAgi" value = "agi">Agility: 0</td>
+                </tr>
+                <tr>
+                    <td id = "bonusCon" value = "con">Constitution: 3</td>
+                </tr>
+                <tr>
+                    <td id = "bonusInt" value = "int">Intelligence: 1</td>
+                </tr>
+                <tr>
+                    <td id = "bonusWis" value = "wis">Wisdom: 0</td>
+                </tr>
+                <tr>
+                    <td id = "bonusCha" value = "cha">Charisma: 1</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class = "title">
+        <label>Selected Perks</label>
+    </div>
+
+    <div id = "currentPerksDiv">
+        <table id = "currentPerks">
+            <tr>
+                <td id = "raceDesc"><b>Race: </b><b>Humans</b> are versatile and adaptable beings, known for their diversity, ambition, and resilience across various cultures and endeavors.</td>
+            </tr>
+            <tr>
+                <td id = "classDesc"><b>Class: </b>A <b>soldier</b> is a disciplined and versatile combatant trained in various weaponry and tactics, skilled in both offense and defense on the battlefield.</td>
+            </tr>
+            <tr>
+                <td id = "bkgDesc"><b>Background: </b>As a high ranking officer,  you command a daunting presense.  You are feared but respected.</td>
+            </tr>
+        </table>
+    </div>
+    <a href="creation/assign-stats/assign_stats.html">
+        <button type = "submit" style="float:right; margin-right:5px;">Next: Assign Stat Points -></button>
+    </a>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
