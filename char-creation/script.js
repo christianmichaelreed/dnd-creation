@@ -2,7 +2,7 @@
 //~ ------------------------------------------ CLASSES ------------------------------------------ //
 //~
 
-class Background {
+class Stats {
     constructor() {
         this.str = 0;
         this.agi = 0;
@@ -14,47 +14,29 @@ class Background {
     }
 }
 
-class Race {
-    constructor() {
-        this.str = 0;
-        this.agi = 0;
-        this.con = 0;
-        this.int = 0;
-        this.wis = 0;
-        this.cha = 0;
-        this.desc = null;
-    }
-}
-
-class Class {
-    constructor() {
-        this.str = 0;
-        this.agi = 0;
-        this.con = 0;
-        this.int = 0;
-        this.wis = 0;
-        this.cha = 0;
-        this.desc = null;
-    }
-}
+class Background        extends Stats {}
+class Race              extends Stats {}
+class characterClass    extends Stats {}
 
 class Character {
     constructor() {
         this.background = new Background();
         this.race = new Race();
-        this.class = new Class();
+        this.class = new characterClass();
     }
 
     getCombinedStats() {
+        const { background, race, charactercharacterClass } = this;
         return {
-            str: this.background.str + this.race.str + this.class.str,
-            agi: this.background.agi + this.race.agi + this.class.agi,
-            con: this.background.con + this.race.con + this.class.con,
-            int: this.background.int + this.race.int + this.class.int,
-            wis: this.background.wis + this.race.wis + this.class.wis,
-            cha: this.background.cha + this.race.cha + this.class.cha,
+            str: background.str + race.str + charactercharacterClass.str,
+            agi: background.agi + race.agi + charactercharacterClass.agi,
+            con: background.con + race.con + charactercharacterClass.con,
+            int: background.int + race.int + charactercharacterClass.int,
+            wis: background.wis + race.wis + charactercharacterClass.wis,
+            cha: background.cha + race.cha + charactercharacterClass.cha
         };
     }
+    
 }
 
 //~
@@ -90,80 +72,75 @@ const classBonuses = {
 }
 
 const backgroundDescriptions = {
-    military: '<b>Background:</b> As a high ranking officer,  you command a daunting presense.  You are feared but respected.',
-    troubledChildhood: '<b>Background:</b> Abused by all you whom you loved,  you have gained a distrust of all.  It has made you stronger but at terrible costs.',
-    priviledged: '<b>Background:</b> You were born with the silver spoon and never <i>really</i> take anything seriously.  All of your time has been focused on partying...you son of a bitch.',
-    loneWolf: '<b>Background:</b> Tragedy left you to fend for yourself.  You have been wisened by your solutude and strengthened through trial and error.',
-    scholar: '<b>Background:</b> Your whole existance you have been burried in books and scrolls.  The sun is your enemy but you area font of knowledge',
-    clinicallyInsane: '<b>Background:</b> Persistant whispers in your ear have driven you from sanity.  Once a fine soldier,  now a madman.',
-    broken: '<b>Background:</b> You are a husk of a being, withered and utterly mindless...until now?'
+    military:           'As a high ranking officer,  you command a daunting presense.  You are feared but respected.',
+    troubledChildhood:  'Abused by all you whom you loved,  you have gained a distrust of all.  It has made you stronger but at terrible costs.',
+    priviledged:        'You were born with the silver spoon and never <i>really</i> take anything seriously.  All of your time has been focused on partying...you son of a bitch.',
+    loneWolf:           'Tragedy left you to fend for yourself.  You have been wisened by your solutude and strengthened through trial and error.',
+    scholar:            'Your whole existance you have been burried in books and scrolls.  The sun is your enemy but you are a font of knowledge',
+    clinicallyInsane:   'Persistant whispers in your ear have driven you from sanity.  Once a fine soldier,  now a madman.',
+    broken:             'You are a husk of a being, withered and utterly mindless...until now?'
 }
 
 const raceDescriptions = {
-    human: '<b>Race: </b><b>Humans</b> are versatile and adaptable beings, known for their diversity, ambition, and resilience across various cultures and endeavors.',
-    elf: '<b>Race: </b><b>Elves</b> are graceful and ethereal beings, possessing an affinity for nature, arcane wisdom, and a long, storied lifespan filled with artistry and grace.',
-    dwarf: '<b>Race: </b><b>Dwarves</b> are resilient and industrious, stout folk with a deep connection to craftsmanship, mining, and a rich heritage of loyalty and honor.',
-    orc: '<b>Race: </b><b>Orcs</b> are fierce and robust warriors, known for their strength, tribal unity, and a powerful, relentless demeanor in battle.',
-    undead: '<b>Race: </b><b>Undead:</b> Once-living creatures reanimated through dark magic, bearing a spectral existence with a haunting nature and varied, often eerie abilities.',
-    dragonkin: '<b>Race: </b><b>Dragonkin</b> are beings with demonic & draconic heritage, embodying the aspects of the corupted dragons that created them such as resilience, demonic affinity, and often possessing a majestic presence and fierce loyalty. A confusing combination of dragon and demon.'
+    human:              'Humans are versatile and adaptable beings, known for their diversity, ambition, and resilience across various cultures and endeavors.',
+    elf:                'Elves are graceful and ethereal beings, possessing an affinity for nature, arcane wisdom, and a long, storied lifespan filled with artistry and grace.',
+    dwarf:              'Dwarves are resilient and industrious, stout folk with a deep connection to craftsmanship, mining, and a rich heritage of loyalty and honor.',
+    orc:                'Orcs are fierce and robust warriors, known for their strength, tribal unity, and a powerful, relentless demeanor in battle.',
+    undead:             'Undead were once-living creatures reanimated through dark magic, bearing a spectral existence with a haunting nature and varied, often eerie abilities.',
+    dragonkin:          'Dragonkin are beings with demonic & draconic heritage, embodying the aspects of the corupted dragons that created them such as resilience, demonic affinity, and often possessing a majestic presence and fierce loyalty. A confusing combination of dragon and demon.'
 }
 
 const classDescriptions = {
-    soldier: '<b>Class: </b>A <b>Soldier</b> is a disciplined and versatile combatant trained in various weaponry and tactics, skilled in both offense and defense on the battlefield.',
-    paladin: '<b>Class: </b>A <b>Paladin</b> is a devout and righteous warrior, blending martial prowess with divine magic in service of justice and honor.',
-    cutthroat: '<b>Class: </b>A <b>Cutthroat</b> is a cunning and ruthless rogue, specializing in stealth, sabotage, and deadly precision in combat and subterfuge.',
-    ranger: '<b>Class: </b>A <b>Ranger</b> is a skilled outdoorsman and marksman, adept in wilderness survival, tracking, and mastering both ranged and close combat.',
-    sorcerer: '<b>Class: </b>A <b>Sorcerer</b> is a spellcaster wielding innate, raw magic, harnessing mystical powers through bloodlines or inherent arcane gifts, shaping reality with unbridled potential.',
-    necromancer: '<b>Class: </b>A <b>Necromancer</b> is a dark conjurer harnessing the forbidden arts of death and decay, commanding the undead and wielding sinister, macabre magic. Necromancers are hated by all.'
+    soldier:            'A <b>Soldier</b> is a disciplined and versatile combatant trained in various weaponry and tactics, skilled in both offense and defense on the battlefield.',
+    paladin:            'A <b>Paladin</b> is a devout and righteous warrior, blending martial prowess with divine magic in service of justice and honor.',
+    cutthroat:          'A <b>Cutthroat</b> is a cunning and ruthless rogue, specializing in stealth, sabotage, and deadly precision in combat and subterfuge.',
+    ranger:             'A <b>Ranger</b> is a skilled outdoorsman and marksman, adept in wilderness survival, tracking, and mastering both ranged and close combat.',
+    sorcerer:           'A <b>Sorcerer</b> is a spellcaster wielding innate, raw magic, harnessing mystical powers through bloodlines or inherent arcane gifts, shaping reality with unbridled potential.',
+    necromancer:        'A <b>Necromancer</b> is a dark conjurer harnessing the forbidden arts of death and decay, commanding the undead and wielding sinister, macabre magic. Necromancers are hated by all.'
 }
 
 
-const myCharacter = new Character();
+let myCharacter = new Character();
 
 
 //~
 //~ ------------------------------------------ EVENT LISTENERS ------------------------------------------ //
 //~
 
-let selectedBackground = document.getElementById('charBackground').value;
-let selectedRace = document.getElementById('charRace').value;
-let selectedClass = document.getElementById('charClass').value;
-
-// get currently selected background, race, and class and update myCharacter & displayed stats
-
-document.getElementById('charBackground').addEventListener('change', function () {
-    selectedBackground = document.getElementById('charBackground').value;
-    updateHTML('bkgDesc', backgroundDescriptions[selectedBackground]);
-    updateCharacter(myCharacter.background, backgroundBonuses[selectedBackground], backgroundDescriptions[selectedBackground]);
-    updateCurrentStatInfluences();
+document.getElementById('charBackground').addEventListener('change', function (event) {
+    updateCharacterFromEvent(event, 'background', backgroundBonuses, backgroundDescriptions);
 });
 
-document.getElementById('charRace').addEventListener('change', function () {
-    selectedRace = document.getElementById('charRace').value;
-    updateHTML('raceDesc', raceDescriptions[selectedRace]);
-    updateCharacter(myCharacter.race, raceBonuses[selectedRace], raceDescriptions[selectedRace]);
-    updateCurrentStatInfluences();
+document.getElementById('charRace').addEventListener('change', function (event) {
+    updateCharacterFromEvent(event, 'race', raceBonuses, raceDescriptions);
 });
 
-document.getElementById('charClass').addEventListener('change', function () {
-    selectedClass = document.getElementById('charClass').value;
-    updateHTML('classDesc', classDescriptions[selectedClass]);
-    updateCharacter(myCharacter.class, classBonuses[selectedClass], classDescriptions[selectedClass]);
-    updateCurrentStatInfluences();
+document.getElementById('charClass').addEventListener('change', function (event) {
+    updateCharacterFromEvent(event, 'class', classBonuses, classDescriptions);
 });
-
-if (document.getElementById('charClass'))
 
 //~
 //~ ------------------------------------------ FUNCTIONS ------------------------------------------ //
 //~
 
-function updateHTML(element, change) {
-    htmlElement = document.getElementById(element);
-    htmlElement.innerHTML = change;
+
+// updateCharacterFromEvent() is the main function,  others are support.
+function updateCharacterFromEvent(event, characterAttribute, bonuses, descriptions) {
+    const selectedValue = event.target.value;
+    updateHTML(`${characterAttribute}Desc`, `<b>${capitalizeFirstLetter(characterAttribute)}: </b>` + `${descriptions[selectedValue]}`);
+    updateCharacter(myCharacter[characterAttribute], bonuses[selectedValue], descriptions[selectedValue]);
+    updateCurrentStatInfluences();
 }
 
-// parameters are: item to change, stats to change, and 
+function updateHTML(element, change) {
+    let htmlElement = document.getElementById(element);
+    if (htmlElement) {
+        htmlElement.innerHTML = change;
+    } else {
+        console.error(`Element ID '${element}' not found.`);
+    }
+}
+
 function updateCharacter(target, bonus, description) {
     target.str = bonus.str || 0;
     target.agi = bonus.agi || 0;
@@ -172,6 +149,10 @@ function updateCharacter(target, bonus, description) {
     target.wis = bonus.wis || 0;
     target.cha = bonus.cha || 0;
     target.desc = description;
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function updateCurrentStatInfluences() {
